@@ -1,10 +1,10 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { CitysService } from './citys.service';
+import { CitysService } from './city.service';
 import { CreateCityDto } from './dto/create-city.dto';
 import { UpdateCityDto } from './dto/update-city.dto';
 import { findCityDto } from './dto/find-city.dto'
 
-@Controller('citys')
+@Controller('city')
 export class CitysController {
   constructor(private readonly citysService: CitysService) {}
 

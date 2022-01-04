@@ -1,21 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCityDto } from './dto/create-city.dto';
 import { UpdateCityDto } from './dto/update-city.dto';
-import { Citys } from '././entities/city.entity';
+import { City } from './entities/city.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class CitysService {
   constructor(
-    @InjectRepository(Citys) private cityRepository: Repository<Citys>
+    @InjectRepository(City) private cityRepository: Repository<City>
   ) {}
 
   async create(createCityDto: CreateCityDto) {
     return await this.cityRepository.save(createCityDto);
   }
 
-  findAll():Promise<Citys[]> {
+  findAll():Promise<City[]> {
     return this.cityRepository.find();
   }
 

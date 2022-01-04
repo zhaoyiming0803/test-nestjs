@@ -2,9 +2,11 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CitysModule } from './citys/citys.module';
-// import { Citys } from './citys/entities/city.entity'
+import { CitysModule } from './city/city.module';
+// import { City } from './citys/entities/city.entity'
 import { getMetadataArgsStorage } from 'typeorm';
+import { UsersModule } from './user/user.module';
+import { CouponModule } from './coupon/coupon.module';
 
 @Module({
   imports: [
@@ -19,7 +21,9 @@ import { getMetadataArgsStorage } from 'typeorm';
       autoLoadEntities: true
       // entities: getMetadataArgsStorage().tables.map((tbl) => tbl.target)
     }),
-    CitysModule
+    CitysModule,
+    UsersModule,
+    CouponModule
   ],
   controllers: [AppController],
   providers: [AppService],
