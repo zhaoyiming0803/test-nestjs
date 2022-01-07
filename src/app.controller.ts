@@ -1,4 +1,4 @@
-import { Controller, Get, Body, Req, Query, Header, Redirect, Param, Post } from '@nestjs/common';
+import { Controller, Get, Body, Req, Query, Header, Redirect, Param, Post, Ip } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Request } from 'express';
 
@@ -29,8 +29,10 @@ export class AppController {
     'a/:id',
     'b/:id/:order'
   ])
-  getWorld(@Param() params): string {
-    console.log('params', params)
+  getWorld(@Req() req: Request, @Param() params, @Ip() ip: string): string {
+    console.log('req: ', req)
+    console.log('params: ', params)
+    console.log('ip: ', ip)
     return this.appService.getWorld()
   }
 
