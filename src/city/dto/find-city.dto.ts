@@ -1,3 +1,3 @@
 export class findCityDto {
-  id: string
+  id: string;
 }

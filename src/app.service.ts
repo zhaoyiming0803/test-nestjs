@@ -7,6 +7,6 @@ export class AppService {
   }
 
   getWorld(): string {
-    return 'World !'
+    return 'World !';
   }
 }

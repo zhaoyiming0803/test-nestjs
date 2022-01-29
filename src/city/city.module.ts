@@ -7,6 +7,6 @@ import { City } from './entities/city.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([City])],
   controllers: [CitysController],
-  providers: [CitysService]
+  providers: [CitysService],
 })
 export class CitysModule {}

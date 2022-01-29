@@ -8,14 +8,14 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class CitysService {
   constructor(
-    @InjectRepository(City) private cityRepository: Repository<City>
+    @InjectRepository(City) private cityRepository: Repository<City>,
   ) {}
 
   async create(createCityDto: CreateCityDto) {
     return await this.cityRepository.save(createCityDto);
   }
 
-  findAll():Promise<City[]> {
+  findAll(): Promise<City[]> {
     return this.cityRepository.find();
   }
 
@@ -28,6 +28,6 @@ export class CitysService {
   }
 
   async remove(id: string) {
-    return await this.cityRepository.delete(id)
+    return await this.cityRepository.delete(id);
   }
 }

@@ -12,5 +12,5 @@ export class User {
   age: number;
 
   @Column()
-  sex: 0 | 1
+  sex: 0 | 1;
 }

@@ -1,3 +1,3 @@
-export class CreateCityDto {
+export interface CreateCityDto {
   name: string;
 }
