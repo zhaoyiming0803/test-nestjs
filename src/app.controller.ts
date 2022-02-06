@@ -35,56 +35,62 @@ interface RedirectInfo {
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
+  // @Get()
+  // getHello(): string {
+  //   return this.appService.getHello();
+  // }
 
-  @Get(['a/:id', 'b/:id/:order'])
-  getWorld(
-    @Req() req: Request,
-    @Param() params,
-    @Ip() ip: string,
-    @Query('password') password: string,
-  ) {
-    console.log('req: ', req.body);
-    console.log('params: ', params);
-    console.log('ip: ', ip);
-    console.log('password: ', password);
-    return this.appService.getWorld();
-  }
+  // @Get(['a/:id', 'b/:id/:order'])
+  // getWorld(
+  //   @Req() req: Request,
+  //   @Param() params,
+  //   @Ip() ip: string,
+  //   @Query('password') password: string,
+  // ) {
+  //   console.log('req: ', req.body);
+  //   console.log('params: ', params);
+  //   console.log('ip: ', ip);
+  //   console.log('password: ', password);
+  //   return this.appService.getWorld();
+  // }
 
-  @Get('user')
-  // @Redirect('https://www.baidu.com', 301)
-  @Header('Cache-Control', 'max-age=10000')
-  async getUserInfo(@Query() id: string): Promise<UserInfo | RedirectInfo> {
-    console.log('id: ', id);
-    const userInfo: UserInfo = {
-      name: 'zhaoyiming',
-      age: 18,
-      skills: ['JavaScript'],
-    };
+  // @Get('user')
+  // // @Redirect('https://www.baidu.com', 301)
+  // @Header('Cache-Control', 'max-age=10000')
+  // async getUserInfo(@Query() id: string): Promise<UserInfo | RedirectInfo> {
+  //   console.log('id: ', id);
+  //   const userInfo: UserInfo = {
+  //     name: 'zhaoyiming',
+  //     age: 18,
+  //     skills: ['JavaScript'],
+  //   };
 
-    // 动态决定重定向，返回的值将覆盖传递给 @Redirect()装饰器的所有参数。 例如：
-    // return {
-    //   url: 'https://www.so.com',
-    //   statusCode: 302
-    // }
+  //   // 动态决定重定向，返回的值将覆盖传递给 @Redirect()装饰器的所有参数。 例如：
+  //   // return {
+  //   //   url: 'https://www.so.com',
+  //   //   statusCode: 302
+  //   // }
 
-    return Promise.resolve(userInfo);
-  }
+  //   return Promise.resolve(userInfo);
+  // }
 
-  @Get('ab*cd')
-  async getUsers(@Param() params) {
-    console.log('ab*cd params: ', params);
-    return 'hello' + JSON.stringify(params);
-  }
+  // @Get('ab*cd')
+  // async getUsers(@Param() params) {
+  //   console.log('ab*cd params: ', params);
+  //   return 'hello' + JSON.stringify(params);
+  // }
 
-  @Post()
-  async create(
-    @Req() req: Request,
-    @Body('a') payload: UserPayload,
-  ): Promise<boolean> {
+  // @Post('/a/b/c')
+  // async create(
+  //   @Req() req: Request,
+  //   @Body('a') payload: any,
+  //   @Body('b') b: any,
+  // ): Promise<boolean> {
+  //   return true;
+  // }
+
+  @Post('/a/b/c/c')
+  async create1(@Body() payload): Promise<boolean> {
     return true;
   }
 }

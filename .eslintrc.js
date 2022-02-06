@@ -4,10 +4,11 @@ module.exports = {
     project: 'tsconfig.json',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint/eslint-plugin', 'nestjs'],
+  plugins: ['@typescript-eslint/eslint-plugin', 'authing-nestjs'],
   extends: [
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'plugin:authing-nestjs/recommended'
   ],
   root: true,
   env: {
@@ -20,6 +21,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
-    'nestjs/use-validation-decorator-body': 'warn'
+    // 'nestjs/use-validation-decorator-body': 'warn',
+    // 'authing-nestjs/forbid_body_parameters': 'warn'
   },
 };
