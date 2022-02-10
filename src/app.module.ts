@@ -9,22 +9,22 @@ import { UsersModule } from './user/user.module';
 import { CouponModule } from './coupon/coupon.module';
 
 @Module({
-  // imports: [
-  //   TypeOrmModule.forRoot({
-  //     type: 'mysql',
-  //     host: 'localhost',
-  //     port: 3306,
-  //     username: 'root',
-  //     password: '12345678',
-  //     database: 'tour',
-  //     synchronize: true,
-  //     autoLoadEntities: true,
-  //     // entities: getMetadataArgsStorage().tables.map((tbl) => tbl.target)
-  //   }),
-  //   CitysModule,
-  //   UsersModule,
-  //   CouponModule,
-  // ],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: '12345678',
+      database: 'tour',
+      synchronize: true,
+      autoLoadEntities: true,
+      // entities: getMetadataArgsStorage().tables.map((tbl) => tbl.target)
+    }),
+    CitysModule,
+    UsersModule,
+    CouponModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

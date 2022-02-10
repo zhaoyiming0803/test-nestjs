@@ -19,7 +19,8 @@ export class CitysService extends BaseService {
   }
 
   async create(createCityDto: CreateCityDto) {
-    return await this.cityRepository.save(createCityDto);
+    return 123;
+    // return await this.cityRepository.save(createCityDto);
   }
 
   findAll(): Promise<City[]> {

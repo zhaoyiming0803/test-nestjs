@@ -11,5 +11,5 @@ export class City {
 
 export interface CityInterface {
   id: number;
-  name: string
+  name: string;
 }
