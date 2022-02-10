@@ -11,7 +11,13 @@ import { CitysService } from './city.service';
 import { CreateCityDto } from './dto/create-city.dto';
 import { UpdateCityDto } from './dto/update-city.dto';
 import { findCityDto } from './dto/find-city.dto';
+import { City, CityInterface } from './entities/city.entity'
 
+interface D {
+  name: string
+}
+
+const d: D = null
 @Controller('city')
 export class CitysController {
   constructor(private readonly citysService: CitysService) {}

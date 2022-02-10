@@ -8,3 +8,8 @@ export class City {
   @Column()
   name: string;
 }
+
+export interface CityInterface {
+  id: number;
+  name: string
+}

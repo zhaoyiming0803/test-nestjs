@@ -5,11 +5,18 @@ import { City } from './entities/city.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
+class Service {}
+class BaseService extends Service {
+  static readonly serviceName: string = 'BaseService';
+}
+
 @Injectable()
-export class CitysService {
+export class CitysService extends BaseService {
   constructor(
     @InjectRepository(City) private cityRepository: Repository<City>,
-  ) {}
+  ) {
+    super();
+  }
 
   async create(createCityDto: CreateCityDto) {
     return await this.cityRepository.save(createCityDto);
