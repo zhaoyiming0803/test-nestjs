@@ -23,5 +23,6 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     // 'nestjs/use-validation-decorator-body': 'warn',
     // 'authing-nestjs/forbid_body_parameters': 'warn'
+    // 'authing-nestjs/use_class_validator_to_nested_dto': 'off'
   }
 };
