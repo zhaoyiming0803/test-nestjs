@@ -1,12 +1,13 @@
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { CitysModule } from './city/city.module';
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { Module, NestModule, MiddlewareConsumer, RequestMethod } from '@nestjs/common'
+import { AppController } from './app.controller'
+import { AppService } from './app.service'
+import { CitysModule } from './city/city.module'
 // import { City } from './citys/entities/city.entity'
-import { getMetadataArgsStorage } from 'typeorm';
-import { UsersModule } from './user/user.module';
-import { CouponModule } from './coupon/coupon.module';
+import { getMetadataArgsStorage } from 'typeorm'
+import { UsersModule } from './user/user.module'
+import { CouponModule } from './coupon/coupon.module'
+import { LoggerMiddleware } from './middlewares/logger.middleware'
 
 @Module({
   imports: [
@@ -28,4 +29,16 @@ import { CouponModule } from './coupon/coupon.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule implements NestModule{
+  configure (consumer: MiddlewareConsumer) {
+    consumer
+      .apply(LoggerMiddleware)
+      .forRoutes({
+        path: '*',
+        method: RequestMethod.POST,
+      }, {
+        path: '/user/*',
+        method: RequestMethod.GET
+      })
+  }
+}

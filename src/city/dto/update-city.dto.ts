@@ -5,6 +5,7 @@ export class UpdateCityDto {
   name: string;
 
   @IsOptional()
+  @IsString()
   email: string;
 
   test: string;
