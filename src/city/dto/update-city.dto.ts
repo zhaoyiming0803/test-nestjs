@@ -1,3 +1,4 @@
+import { plainToClass } from 'class-transformer';
 import { IsOptional, IsString } from 'class-validator';
 
 export class UpdateCityDto {
@@ -9,4 +10,15 @@ export class UpdateCityDto {
   email: string;
 
   test: string;
+
+  public static ValueOfGroupEntity(data: any) {
+    data.description = data.description ?? '';
+    return plainToClass(UpdateCityDto, data, {
+      excludeExtraneousValues: true,
+    });
+  }
+
+  public static ValueOfGroupEntityList(data: []) {
+    return data.map((item) => UpdateCityDto.ValueOfGroupEntity(item));
+  }
 }

@@ -22,8 +22,8 @@ export class CitysController {
     return await this.citysService.create(createCityDto);
   }
 
-  @Get()
-  async findAll() {
+  @Post()
+  async findAll(@Body() dto: findCityDto) {
     return await this.citysService.findAll();
   }
 
